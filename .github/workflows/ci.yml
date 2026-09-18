@@ -18,3 +18,4 @@ jobs:
         run: |
           test -f README.md
           echo "CI passed"
+          exit 1
