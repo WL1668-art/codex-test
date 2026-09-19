@@ -1,0 +1,180 @@
+{
+  "last_updated": "2026-09-19T13:20:56+08:00",
+  "time_window": {
+    "start": "2026-09-16T00:00:00+08:00",
+    "end": "2026-09-19T13:20:56+08:00",
+    "expanded_to_seven_days": false
+  },
+  "candidate_count": 18,
+  "selected_count": 8,
+  "items": [
+    {
+      "title": "SpaceXAI 发布 Grok Voice Transcribe 2.0",
+      "event_at": "2026-09-18",
+      "source_published_at": "2026-09-18",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "语音 / API",
+      "background": "实时语音代理、客服和视频工作流依赖在噪声、口音与多语言环境中稳定运行的语音转文字能力。",
+      "summary": "SpaceXAI 发布新的语音转文字模型 Grok Voice Transcribe 2.0，支持批处理与流式转录、词级时间戳、说话人分离、多通道和关键词偏置。官方定价为批处理每小时 0.10 美元、流式每小时 0.20 美元；关于准确率领先和较上一代提升两倍的表述来自公司及其引用的榜单。",
+      "why_it_matters": "更低成本且面向真实噪声场景的转录会直接影响语音代理、客服自动化和视频到代码等下游工作流，但性能结论仍应结合具体语种和场景复测。",
+      "primary_source": {
+        "name": "SpaceXAI",
+        "url": "https://x.ai/news/grok-voice-transcribe-2"
+      },
+      "secondary_sources": [],
+      "source_name": "SpaceXAI",
+      "source_url": "https://x.ai/news/grok-voice-transcribe-2",
+      "verification_status": "Verified",
+      "evidence_scope": "First-party reported, not independently verified"
+    },
+    {
+      "title": "Anthropic 与 Accenture 建立嵌入式前沿模型评估团队",
+      "event_at": "2026-09-18",
+      "source_published_at": "2026-09-18",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "安全 / 评估",
+      "background": "前沿模型评估通常发生在训练或发布流程之外，外部评估者难以持续观察模型形成过程和内部决策。",
+      "summary": "Anthropic 与 Accenture 宣布由 Faculty 牵头组建嵌入式评估团队，工作包括模型评估、红队测试、对齐评估和防护测试。双方分别预计在未来五年至少投入 10 亿美元；两家公司都明确表示具体运行和报告标准仍在形成中。",
+      "why_it_matters": "如果访问范围和公开报告机制能够落地，嵌入式评估可能把第三方监督提前到模型开发阶段；目前仍需观察独立性、资金安排和披露标准。",
+      "primary_source": {
+        "name": "Anthropic",
+        "url": "https://www.anthropic.com/news/accenture-embedded-evaluation"
+      },
+      "secondary_sources": [
+        {
+          "name": "Accenture Newsroom",
+          "url": "https://newsroom.accenture.com/news/2026/accenture-and-anthropic-partner-to-build-team-of-embedded-evaluators-at-anthropic"
+        }
+      ],
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+      "verification_status": "Verified",
+      "evidence_scope": "Cross-source corroborated"
+    },
+    {
+      "title": "ChatGPT 正式进入 Microsoft Word",
+      "event_at": "2026-09-17",
+      "source_published_at": "2026-09-17",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "产品 / 办公",
+      "background": "生成式 AI 正从独立聊天界面进入用户已有的文档、表格与演示软件。",
+      "summary": "OpenAI 发布 ChatGPT for Word，可在 Word 侧栏中根据当前文档起草、总结、改写和调整标题与格式，覆盖包括免费版在内的所有 ChatGPT 计划。它使用与 Excel 和 PowerPoint 相同的 Microsoft 加载项，组织管理员仍可控制是否启用。",
+      "why_it_matters": "AI 文档协作进入主流办公入口，减少跨应用复制，但复杂格式、表格和图表仍可能需要人工调整，关键事实和引用也必须复核。",
+      "primary_source": {
+        "name": "OpenAI ChatGPT Release Notes",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      "secondary_sources": [
+        {
+          "name": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/20001526-chatgpt-for-word"
+        }
+      ],
+      "source_name": "OpenAI ChatGPT Release Notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "verification_status": "Verified",
+      "evidence_scope": "Primary-source verified"
+    },
+    {
+      "title": "Anthropic 推出生命科学验证计划，分层开放更宽松的生物能力",
+      "event_at": "2026-09-17",
+      "source_published_at": "2026-09-17",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "生命科学 / 安全",
+      "background": "生物研究请求可能兼具科研价值与双重用途风险，统一的实时拦截会同时阻断部分合法研究。",
+      "summary": "Anthropic 以 beta 形式开放 Life Sciences Verification Program，为通过资质、安全标准和伦理监督审查的团队提供 Standard Use 与项目级 High-risk Use 两类权限。计划采用用途绑定和离线监控，并对被标记活动相关数据保留 30 天；当前不面向个人计划，也不适用于 BAA 启用组织。",
+      "why_it_matters": "这是一种把身份、用途审查和持续监控组合起来的差异化访问模型，可能影响高风险领域如何在开放科研能力与防滥用之间做权限设计。",
+      "primary_source": {
+        "name": "Anthropic",
+        "url": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      "secondary_sources": [],
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news/life-sciences-verification-program",
+      "verification_status": "Verified",
+      "evidence_scope": "Primary-source verified"
+    },
+    {
+      "title": "Anthropic 公布衡量前沿实验室 AI 自我加速的三组指标",
+      "event_at": "2026-09-17",
+      "source_published_at": "2026-09-17",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "研究 / 治理",
+      "background": "随着 AI 更多参与下一代模型研发，外界缺少可比较的指标来观察自动化程度、代理监督覆盖和算力分配。",
+      "summary": "Anthropic 提出 AI 研发自动化、代理监督和算力分配三类测量方法。公司自报截至 2026 年 8 月 Claude 在 26% 的内部 AI 研发工作中处于“主导”级别，且被测周内约 6% 的 AI 研发算力归入安全研究；这些数字来自内部数据和公司定义，尚未由独立第三方复核。",
+      "why_it_matters": "即使方法仍不成熟，这类可重复披露若被其他实验室采用并由第三方审计，可能为监管和行业比较提供比单一 benchmark 更接近研发过程的信号。",
+      "primary_source": {
+        "name": "Anthropic Institute",
+        "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+      },
+      "secondary_sources": [],
+      "source_name": "Anthropic Institute",
+      "source_url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "verification_status": "Verified",
+      "evidence_scope": "First-party reported, not independently verified"
+    },
+    {
+      "title": "Mozilla 与 Mistral 宣布将 Mistral Small 4 接入 Firefox Smart Window beta",
+      "event_at": "2026-09-16",
+      "source_published_at": "2026-09-16",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "浏览器 / 开放生态",
+      "background": "浏览器正在成为 AI 助手的关键分发入口，模型选择权、区域语言适配与数据保留政策因此变得更重要。",
+      "summary": "Mozilla 与 Mistral 宣布 Firefox Smart Window beta 的 Mistral Small 4 接入安排，覆盖美国、加拿大，并把带法语支持的 beta 扩展到法国。Mozilla 将其表述为即将接入，Mistral 的公告则称 Smart Window 已由其模型提供支持；双方均确认合作、用户仍可选择其他模型，Mistral 表示合作遵循零数据保留安排。",
+      "why_it_matters": "独立浏览器与欧洲开放权重模型的结合，为由浏览器厂商自有模型主导的路径提供了替代方案，也把多模型选择和区域语言能力带入消费级入口。",
+      "primary_source": {
+        "name": "Mistral AI",
+        "url": "https://mistral.ai/news/mistral-x-mozilla/"
+      },
+      "secondary_sources": [
+        {
+          "name": "Mozilla Blog",
+          "url": "https://blog.mozilla.org/en/firefox/mozilla-mistral-partnership/"
+        }
+      ],
+      "source_name": "Mistral AI",
+      "source_url": "https://mistral.ai/news/mistral-x-mozilla/",
+      "verification_status": "Verified",
+      "evidence_scope": "Cross-source corroborated"
+    },
+    {
+      "title": "Emerald AI、Google 与 NVIDIA 发起 AI 能源管理联盟",
+      "event_at": "2026-09-16",
+      "source_published_at": "2026-09-16",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "基础设施 / 能源",
+      "background": "电网接入和峰值负荷已成为大规模 AI 数据中心扩张的重要约束，传统接入规则通常把数据中心视为固定负载。",
+      "summary": "Emerald AI、Google 与 NVIDIA 宣布成立 AI Energy Management Alliance，目标是推动可根据电网条件动态调节用电的数据中心，并建立响应速度、持续时间、可预测性和紧急行为等性能标准。联盟计划联合算力、数据中心、能源、公共事业和电网运营方制定技术与运行方法。",
+      "why_it_matters": "把 AI 数据中心设计成可调负载，可能缩短并网周期并降低峰值压力；联盟目前公布的是协作框架，实际规模和效果仍取决于成员、标准与项目落地。",
+      "primary_source": {
+        "name": "NVIDIA Blog",
+        "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/"
+      },
+      "secondary_sources": [],
+      "source_name": "NVIDIA Blog",
+      "source_url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+      "verification_status": "Verified",
+      "evidence_scope": "Primary-source verified"
+    },
+    {
+      "title": "OpenAI 建立模型失配事件的持续披露框架",
+      "event_at": "2026-09-16",
+      "source_published_at": "2026-09-16",
+      "verified_at": "2026-09-19T13:20:56+08:00",
+      "category": "安全 / 透明度",
+      "background": "模型失配案例过去常分散在系统卡或阶段性报告中，缺少统一的触发、调查和披露流程。",
+      "summary": "OpenAI 发布用于跟踪、调查和披露模型失配事件的新框架，并同时发布六份过去六个月观察到的行为报告。框架覆盖训练、评估、测试与部署阶段，并把案件分为可直接披露、短期调查和大型调查三类；OpenAI 明确指出首批案例不代表发生频率。",
+      "why_it_matters": "持续、结构化的失配披露能为外部研究者提供可复查线索，也可能推动行业形成更一致的事故报告标准；框架是否有效仍取决于后续披露的完整性与外部验证。",
+      "primary_source": {
+        "name": "OpenAI",
+        "url": "https://openai.com/index/model-misalignment-reporting-framework/"
+      },
+      "secondary_sources": [],
+      "source_name": "OpenAI",
+      "source_url": "https://openai.com/index/model-misalignment-reporting-framework/",
+      "verification_status": "Verified",
+      "evidence_scope": "Primary-source verified"
+    }
+  ]
+}
+
