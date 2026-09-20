@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="mushan">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>朱元璋K线人生</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f0e6;
+      --paper-deep: #ece3d3;
+      --ink: #2e2925;
+      --muted: #766f67;
+      --line: rgba(75, 63, 50, 0.16);
+      --vermilion: #ad3f36;
+      --jade: #347a68;
+      --purple: #75608f;
+      --paper-wash: rgba(255, 255, 255, 0.82);
+      --paper-grain: rgba(134, 98, 61, 0.035);
+      --surface: rgba(255, 252, 246, 0.72);
+      --surface-soft: rgba(255, 252, 246, 0.58);
+      --surface-strong: #fffdf8;
+      --controls-bg: rgba(232, 223, 209, 0.25);
+      --control-bg: rgba(255, 253, 248, 0.86);
+      --control-hover: #fffdf9;
+      --story-text: #5f5851;
+      --button-text: #fffdf8;
+      --gate-mask-top: rgba(247, 242, 232, 0.3);
+      --gate-mask-bottom: rgba(247, 242, 232, 0.76);
+      --gate-card: rgba(255, 252, 246, 0.94);
+      --badge-bg: rgba(117, 96, 143, 0.07);
+      --badge-border: rgba(117, 96, 143, 0.25);
+      --accent-soft: rgba(117, 96, 143, 0.12);
+      --accent-mid: rgba(117, 96, 143, 0.55);
+      --progress-track: rgba(75, 63, 50, 0.12);
+      --canvas-grid-zero: rgba(70, 58, 47, 0.22);
+      --canvas-grid: rgba(70, 58, 47, 0.105);
+      --canvas-axis: rgba(80, 70, 61, 0.64);
+      --canvas-muted: rgba(80, 70, 61, 0.58);
+      --trajectory-line: rgba(117, 96, 143, 0.65);
+      --trajectory-head: rgba(117, 96, 143, 0.82);
+      --current-glow-start: rgba(117, 96, 143, 0.17);
+      --current-glow-end: rgba(117, 96, 143, 0);
+      --current-ring: rgba(117, 96, 143, 0.26);
+      --candle-edge: rgba(255, 253, 248, 0.9);
+      --canvas-year: #40364b;
+      --canvas-year-muted: rgba(70, 60, 51, 0.62);
+      --canvas-label-bg: rgba(255, 252, 245, 0.94);
+      --canvas-label-border: rgba(117, 96, 143, 0.28);
+      --canvas-label-text: #51455d;
+      --canvas-opening: rgba(46, 41, 37, 0.72);
+      --canvas-opening-muted: rgba(78, 69, 61, 0.62);
+      --chapter-1: #8b8176;
+      --chapter-2: #8a6e56;
+      --chapter-3: #8c514d;
+      --chapter-4: #647b6d;
+      --chapter-5: #75608f;
+      --shadow: 0 18px 55px rgba(66, 52, 38, 0.11);
+      --gate-shadow: 0 18px 50px rgba(66, 52, 38, 0.14);
+      --button-shadow: 0 9px 24px rgba(117, 96, 143, 0.24);
+      --active-shadow: 0 9px 28px rgba(69, 54, 38, 0.13), inset 0 0 0 1px rgba(117, 96, 143, 0.36);
+    }
+
+    :root[data-theme="gongqiang"] {
+      --paper: #efe8dc;
+      --paper-deep: #e2d4c0;
+      --ink: #30251f;
+      --muted: #78675d;
+      --line: rgba(92, 55, 40, 0.18);
+      --vermilion: #a64034;
+      --jade: #4e7467;
+      --purple: #8d463a;
+      --paper-wash: rgba(255, 250, 240, 0.78);
+      --paper-grain: rgba(126, 72, 45, 0.04);
+      --surface: rgba(249, 243, 232, 0.76);
+      --surface-soft: rgba(248, 241, 229, 0.64);
+      --surface-strong: #fbf5ea;
+      --controls-bg: rgba(138, 88, 57, 0.08);
+      --control-bg: rgba(252, 247, 238, 0.88);
+      --control-hover: #fff9ef;
+      --story-text: #66564d;
+      --gate-mask-top: rgba(239, 232, 220, 0.32);
+      --gate-mask-bottom: rgba(224, 210, 192, 0.8);
+      --gate-card: rgba(251, 246, 237, 0.95);
+      --badge-bg: rgba(166, 64, 52, 0.07);
+      --badge-border: rgba(141, 70, 58, 0.27);
+      --accent-soft: rgba(141, 70, 58, 0.12);
+      --accent-mid: rgba(141, 70, 58, 0.58);
+      --canvas-grid-zero: rgba(80, 53, 40, 0.22);
+      --canvas-grid: rgba(80, 53, 40, 0.1);
+      --canvas-axis: rgba(83, 61, 49, 0.66);
+      --canvas-muted: rgba(83, 61, 49, 0.58);
+      --trajectory-line: rgba(141, 70, 58, 0.62);
+      --trajectory-head: rgba(141, 70, 58, 0.84);
+      --current-glow-start: rgba(156, 122, 72, 0.18);
+      --current-glow-end: rgba(156, 122, 72, 0);
+      --current-ring: rgba(156, 122, 72, 0.34);
+      --canvas-year: #673b32;
+      --canvas-year-muted: rgba(78, 58, 48, 0.64);
+      --canvas-label-bg: rgba(251, 246, 237, 0.95);
+      --canvas-label-border: rgba(156, 122, 72, 0.34);
+      --canvas-label-text: #70473b;
+      --canvas-opening: rgba(48, 37, 31, 0.76);
+      --canvas-opening-muted: rgba(93, 74, 62, 0.66);
+      --chapter-1: #847568;
+      --chapter-2: #8b694b;
+      --chapter-3: #a04437;
+      --chapter-4: #74705b;
+      --chapter-5: #8d5b45;
+      --shadow: 0 18px 55px rgba(86, 49, 31, 0.11);
+      --gate-shadow: 0 18px 50px rgba(91, 50, 30, 0.15);
+      --button-shadow: 0 9px 24px rgba(141, 70, 58, 0.23);
+      --active-shadow: 0 9px 28px rgba(86, 49, 31, 0.13), inset 0 0 0 1px rgba(141, 70, 58, 0.38);
+    }
+
+    :root[data-theme="shanshui"] {
+      --paper: #ecece8;
+      --paper-deep: #deded8;
+      --ink: #292d2b;
+      --muted: #6c716d;
+      --line: rgba(49, 57, 53, 0.16);
+      --vermilion: #88514b;
+      --jade: #587368;
+      --purple: #686f73;
+      --paper-wash: rgba(255, 255, 252, 0.74);
+      --paper-grain: rgba(49, 57, 53, 0.028);
+      --surface: rgba(247, 247, 243, 0.73);
+      --surface-soft: rgba(248, 248, 244, 0.6);
+      --surface-strong: #fafaf6;
+      --controls-bg: rgba(65, 75, 69, 0.055);
+      --control-bg: rgba(250, 250, 247, 0.84);
+      --control-hover: #fdfdfa;
+      --story-text: #565d59;
+      --gate-mask-top: rgba(235, 236, 232, 0.3);
+      --gate-mask-bottom: rgba(220, 222, 217, 0.8);
+      --gate-card: rgba(247, 248, 244, 0.95);
+      --badge-bg: rgba(104, 111, 115, 0.07);
+      --badge-border: rgba(104, 111, 115, 0.24);
+      --accent-soft: rgba(104, 111, 115, 0.12);
+      --accent-mid: rgba(104, 111, 115, 0.52);
+      --canvas-grid-zero: rgba(48, 57, 52, 0.2);
+      --canvas-grid: rgba(48, 57, 52, 0.09);
+      --canvas-axis: rgba(55, 64, 59, 0.62);
+      --canvas-muted: rgba(55, 64, 59, 0.56);
+      --trajectory-line: rgba(95, 103, 107, 0.62);
+      --trajectory-head: rgba(95, 103, 107, 0.82);
+      --current-glow-start: rgba(91, 105, 100, 0.15);
+      --current-glow-end: rgba(91, 105, 100, 0);
+      --current-ring: rgba(91, 105, 100, 0.28);
+      --canvas-year: #39423e;
+      --canvas-year-muted: rgba(58, 67, 62, 0.6);
+      --canvas-label-bg: rgba(248, 249, 245, 0.95);
+      --canvas-label-border: rgba(95, 103, 107, 0.26);
+      --canvas-label-text: #47504c;
+      --canvas-opening: rgba(41, 45, 43, 0.74);
+      --canvas-opening-muted: rgba(75, 83, 78, 0.62);
+      --chapter-1: #777b77;
+      --chapter-2: #72766b;
+      --chapter-3: #7f5c58;
+      --chapter-4: #5f7168;
+      --chapter-5: #686f73;
+      --shadow: 0 18px 55px rgba(41, 48, 44, 0.1);
+      --gate-shadow: 0 18px 50px rgba(40, 48, 44, 0.13);
+      --button-shadow: 0 9px 24px rgba(80, 89, 85, 0.2);
+      --active-shadow: 0 9px 28px rgba(45, 52, 48, 0.12), inset 0 0 0 1px rgba(95, 103, 107, 0.32);
+    }
+
+    :root[data-theme="anye"] {
+      color-scheme: dark;
+      --paper: #10151d;
+      --paper-deep: #171e28;
+      --ink: #e5dfd3;
+      --muted: #a1a6ad;
+      --line: rgba(222, 226, 231, 0.12);
+      --vermilion: #d86b61;
+      --jade: #66ad91;
+      --purple: #9a86be;
+      --paper-wash: rgba(78, 88, 108, 0.13);
+      --paper-grain: rgba(200, 208, 221, 0.018);
+      --surface: rgba(25, 32, 43, 0.88);
+      --surface-soft: rgba(31, 39, 51, 0.78);
+      --surface-strong: #232c39;
+      --controls-bg: rgba(7, 11, 17, 0.2);
+      --control-bg: rgba(38, 47, 60, 0.9);
+      --control-hover: #303a49;
+      --story-text: #c1beb7;
+      --button-text: #f0eaf7;
+      --gate-mask-top: rgba(11, 16, 24, 0.35);
+      --gate-mask-bottom: rgba(8, 12, 18, 0.8);
+      --gate-card: rgba(30, 38, 50, 0.96);
+      --badge-bg: rgba(154, 134, 190, 0.1);
+      --badge-border: rgba(154, 134, 190, 0.3);
+      --accent-soft: rgba(154, 134, 190, 0.16);
+      --accent-mid: rgba(154, 134, 190, 0.64);
+      --progress-track: rgba(222, 226, 231, 0.1);
+      --canvas-grid-zero: rgba(218, 223, 229, 0.16);
+      --canvas-grid: rgba(218, 223, 229, 0.07);
+      --canvas-axis: rgba(198, 203, 211, 0.58);
+      --canvas-muted: rgba(198, 203, 211, 0.52);
+      --trajectory-line: rgba(166, 143, 207, 0.72);
+      --trajectory-head: rgba(176, 151, 220, 0.9);
+      --current-glow-start: rgba(154, 134, 190, 0.2);
+      --current-glow-end: rgba(154, 134, 190, 0);
+      --current-ring: rgba(184, 163, 220, 0.4);
+      --candle-edge: rgba(21, 27, 37, 0.92);
+      --canvas-year: #d7ccea;
+      --canvas-year-muted: rgba(195, 199, 207, 0.58);
+      --canvas-label-bg: rgba(31, 39, 51, 0.96);
+      --canvas-label-border: rgba(166, 143, 207, 0.38);
+      --canvas-label-text: #ded4ee;
+      --canvas-opening: rgba(229, 223, 211, 0.8);
+      --canvas-opening-muted: rgba(181, 183, 187, 0.68);
+      --chapter-1: #878b90;
+      --chapter-2: #a08669;
+      --chapter-3: #b36d67;
+      --chapter-4: #729485;
+      --chapter-5: #9a86be;
+      --shadow: 0 20px 58px rgba(0, 0, 0, 0.28);
+      --gate-shadow: 0 20px 56px rgba(0, 0, 0, 0.36);
+      --button-shadow: 0 9px 24px rgba(83, 65, 114, 0.34);
+      --active-shadow: 0 9px 28px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(166, 143, 207, 0.4);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: clip;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, var(--paper-wash), transparent 28rem),
+        linear-gradient(135deg, var(--paper-grain) 25%, transparent 25%) 0 0 / 22px 22px,
+        var(--paper);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
+      transition: color 220ms ease, background-color 220ms ease;
+    }
+
+    button { font: inherit; touch-action: manipulation; }
+
+    .page {
+      width: min(1480px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 46px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--vermilion);
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 74px);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .subtitle {
+      max-width: 620px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .state-chip {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 178px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+    }
+
+    .state-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .stage {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      overscroll-behavior-inline: contain;
+      touch-action: pan-x;
+      border-bottom: 1px solid var(--line);
+      font-family: system-ui, sans-serif;
+    }
+
+    .chapter-tab {
+      position: relative;
+      padding: 10px 14px 9px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .chapter-tab::after {
+      position: absolute;
+      right: 16%;
+      bottom: -1px;
+      left: 16%;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--chapter-color);
+      content: "";
+      opacity: 0.78;
+    }
+
+    .chart-wrap {
+      position: relative;
+      height: min(55vw, 570px);
+      min-height: 430px;
+    }
+
+    .gate-panel {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      padding: 72px 24px 34px;
+      background: linear-gradient(180deg, var(--gate-mask-top), var(--gate-mask-bottom));
+    }
+
+    .gate-panel[hidden] { display: none; }
+
+    .gate-card {
+      width: min(520px, 100%);
+      padding: 25px 28px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--gate-card);
+      box-shadow: var(--gate-shadow);
+      text-align: center;
+    }
+
+    .gate-kicker {
+      margin: 0 0 8px;
+      color: var(--purple);
+      font: 700 11px/1.4 system-ui, sans-serif;
+      letter-spacing: 0.18em;
+    }
+
+    .gate-card h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 600;
+    }
+
+    .gate-card p {
+      margin: 12px auto 18px;
+      color: var(--muted);
+      font: 13px/1.8 system-ui, sans-serif;
+    }
+
+    .gate-button {
+      min-width: 180px;
+      min-height: 46px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--button-text);
+      background: var(--purple);
+      box-shadow: var(--button-shadow);
+      cursor: pointer;
+      font: 700 14px system-ui, sans-serif;
+    }
+
+    .gate-hint {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font: 11px system-ui, sans-serif;
+    }
+
+    #chart {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .chart-caption {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      pointer-events: none;
+    }
+
+    .legend-item { display: flex; gap: 6px; align-items: center; }
+    .legend-mark { width: 15px; height: 3px; border-radius: 3px; }
+
+    .readout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      border-top: 1px solid var(--line);
+    }
+
+    .story {
+      min-height: 202px;
+      padding: 24px 28px 26px;
+      border-right: 1px solid var(--line);
+    }
+
+    .story-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      align-items: center;
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+    }
+
+    .story-year {
+      color: var(--vermilion);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .badge {
+      padding: 4px 9px;
+      border: 1px solid var(--badge-border);
+      border-radius: 999px;
+      background: var(--badge-bg);
+    }
+
+    .story h2 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .story p {
+      max-width: 820px;
+      margin: 14px 0 0;
+      color: var(--story-text);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      padding: 22px 26px;
+      background: var(--controls-bg);
+    }
+
+    .theme-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .theme-picker {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font: 11px system-ui, sans-serif;
+    }
+
+    .theme-picker select,
+    .theme-toggle {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--control-bg);
+      cursor: pointer;
+      font: 12px system-ui, sans-serif;
+    }
+
+    .theme-picker select {
+      min-width: 102px;
+      padding: 0 30px 0 12px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+      min-width: 88px;
+      padding: 0 12px;
+    }
+
+    .theme-toggle .moon-mark { color: var(--purple); font-size: 16px; line-height: 1; }
+
+    body,
+    .stage,
+    .state-chip,
+    .gate-panel,
+    .gate-card,
+    .controls,
+    .control-row button,
+    .theme-picker select,
+    .theme-toggle,
+    .timeline-card,
+    .badge {
+      transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .control-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .control-row button {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--ink);
+      background: var(--control-bg);
+      cursor: pointer;
+      transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+    }
+
+    .control-row button:hover {
+      border-color: var(--accent-mid);
+      background: var(--control-hover);
+      transform: translateY(-1px);
+    }
+
+    .control-row button:disabled {
+      cursor: not-allowed;
+      opacity: 0.42;
+      transform: none;
+    }
+
+    .control-row button:focus-visible,
+    .gate-button:focus-visible,
+    .theme-picker select:focus-visible,
+    .theme-toggle:focus-visible,
+    .timeline-card:focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: 2px;
+    }
+
+    #playButton {
+      color: var(--button-text);
+      border-color: var(--purple);
+      background: var(--purple);
+    }
+
+    .progress-line {
+      height: 3px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--progress-track);
+    }
+
+    .progress-line span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--vermilion), var(--purple));
+      transition: width 280ms ease;
+    }
+
+    .control-status {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+    }
+
+    .timeline-section { min-width: 0; margin-top: 22px; overflow: hidden; }
+
+    .timeline-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: baseline;
+      margin: 0 2px 10px;
+    }
+
+    .timeline-heading h2 { margin: 0; font-size: 18px; font-weight: 600; }
+    .timeline-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .timeline {
+      display: grid;
+      grid-auto-columns: minmax(148px, 1fr);
+      grid-auto-flow: column;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 3px 18px;
+      scrollbar-color: var(--accent-mid) transparent;
+      scroll-behavior: auto;
+      overscroll-behavior-inline: contain;
+      touch-action: pan-x;
+    }
+
+    .timeline-card {
+      position: relative;
+      min-height: 92px;
+      padding: 13px 13px 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      color: var(--ink);
+      background: var(--surface-soft);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .timeline-card::before {
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 0;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+      background: var(--chapter-color);
+      content: "";
+      opacity: 0.78;
+    }
+
+    .timeline-card:hover { transform: translateY(-2px); }
+
+    .timeline-card.active {
+      background: var(--surface-strong);
+      box-shadow: var(--active-shadow);
+      transform: translateY(-3px);
+    }
+
+    .timeline-card .year {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--chapter-color);
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .timeline-card .title {
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    #errorBadge {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 9;
+      display: none;
+      max-width: min(520px, calc(100vw - 28px));
+      padding: 10px 14px;
+      border-radius: 7px;
+      color: #fff;
+      background: #8c2828;
+      font: 12px/1.5 system-ui, sans-serif;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 22px, 1480px); padding-top: 22px; }
+      .masthead { grid-template-columns: 1fr; }
+      .state-chip { justify-self: start; }
+      .chapter-strip { overflow-x: auto; grid-template-columns: repeat(5, minmax(118px, 1fr)); scrollbar-color: var(--accent-mid) transparent; }
+      .readout { grid-template-columns: 1fr; }
+      .story { border-right: 0; border-bottom: 1px solid var(--line); }
+      .chart-wrap { height: 470px; min-height: 470px; }
+      .gate-panel { padding: 58px 18px 26px; }
+      .theme-controls { justify-content: stretch; }
+      .theme-picker { flex: 1 1 auto; }
+      .theme-picker select { flex: 1 1 auto; }
+      .theme-picker select,
+      .theme-toggle { min-height: 44px; }
+      .control-row button { min-height: 46px; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 14px, 1480px); padding: 16px 0 30px; }
+      .masthead { gap: 14px; margin-bottom: 16px; }
+      .eyebrow { margin-bottom: 6px; font-size: 10px; letter-spacing: 0.15em; }
+      h1 { max-width: 100%; font-size: clamp(33px, 10.8vw, 46px); letter-spacing: 0.015em; overflow-wrap: anywhere; }
+      .subtitle { margin-top: 10px; font-size: 13px; line-height: 1.7; }
+      .state-chip { min-width: 0; padding: 8px 12px; }
+      .stage { border-radius: 13px; }
+      .chapter-strip { grid-template-columns: repeat(5, minmax(96px, 1fr)); }
+      .chapter-tab { padding: 9px 8px 8px; font-size: 11px; }
+      .chart-wrap { height: 440px; min-height: 440px; }
+      .chart-caption { top: 12px; left: 14px; flex-wrap: wrap; gap: 7px 11px; font-size: 10px; }
+      .gate-panel { align-items: center; padding: 54px 12px 24px; }
+      .gate-card { width: 100%; padding: 21px 16px; border-radius: 13px; }
+      .gate-card h2 { font-size: clamp(25px, 8vw, 32px); }
+      .gate-card p { margin: 10px auto 15px; font-size: 12px; line-height: 1.65; }
+      .gate-button { width: min(100%, 230px); min-height: 48px; }
+      .readout { min-width: 0; }
+      .story { min-height: 0; padding: 19px 17px 21px; }
+      .story-meta { gap: 7px 10px; margin-bottom: 10px; }
+      .story-year { font-size: 19px; }
+      .story h2 { font-size: clamp(25px, 8vw, 32px); }
+      .story p { margin-top: 10px; font-size: 14px; line-height: 1.75; }
+      .controls { min-width: 0; gap: 12px; padding: 16px; }
+      .theme-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+      .theme-picker { min-width: 0; }
+      .theme-picker span { flex: 0 0 auto; }
+      .theme-picker select { min-width: 0; width: 100%; }
+      .theme-toggle { min-width: 92px; padding: 0 10px; }
+      .control-row { grid-template-columns: repeat(2, 1fr); }
+      .control-row button { min-width: 0; padding: 0 7px; font-size: 13px; white-space: normal; }
+      .timeline-heading p { display: none; }
+      .timeline-section { margin-top: 16px; }
+      .timeline-heading { margin-bottom: 7px; }
+      .timeline-heading h2 { font-size: 17px; }
+      .timeline { grid-auto-columns: 132px; gap: 8px; width: 100%; max-width: 100%; padding-bottom: 13px; }
+      .timeline-card { min-height: 84px; padding: 11px 10px 10px 14px; }
+      .timeline-card .year { margin-bottom: 6px; font-size: 12px; }
+      .timeline-card .title { font-size: 13px; line-height: 1.4; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body,
+      .stage,
+      .state-chip,
+      .gate-panel,
+      .gate-card,
+      .controls,
+      .badge,
+      .control-row button,
+      .theme-picker select,
+      .theme-toggle,
+      .timeline-card,
+      .progress-line span { transition-duration: 1ms; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">A LIFE IN CANDLESTICKS · 1328—1398</p>
+        <h1>朱元璋K线人生</h1>
+        <p class="subtitle">把一生拆成二十七个叙事节点。开收之间看处境转折，上下影线看权力上限与风险代价；所有数值均为叙事指数，不是史学定量结论。</p>
+      </div>
+      <div class="state-chip" aria-live="polite">
+        <span class="state-dot"></span>
+        <span>播放状态：<strong id="stateLabel">开场命题</strong></span>
+      </div>
+    </header>
+
+    <section class="stage" aria-label="朱元璋人生K线动态图">
+      <div class="chapter-strip" id="chapterStrip"></div>
+      <div class="chart-wrap">
+        <canvas id="chart" aria-label="朱元璋人生K线与冲击量图"></canvas>
+        <div class="chart-caption" aria-hidden="true">
+          <span class="legend-item"><i class="legend-mark" style="background:var(--vermilion)"></i>处境上行</span>
+          <span class="legend-item"><i class="legend-mark" style="background:var(--jade)"></i>处境回落</span>
+          <span class="legend-item"><i class="legend-mark" style="background:var(--purple)"></i>命运轨迹</span>
+        </div>
+        <div class="gate-panel" id="gatePanel">
+          <div class="gate-card">
+            <p class="gate-kicker" id="gateKicker">OPENING</p>
+            <h2 id="gateTitle">故事尚未开始</h2>
+            <p id="gateCopy">从乱世最低处出发，沿二十七个节点走完七十年人生。</p>
+            <button class="gate-button" type="button" id="gateButton">开始播放</button>
+            <span class="gate-hint">桌面端可按空格键</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readout">
+        <article class="story" aria-live="polite">
+          <div class="story-meta">
+            <span class="story-year" id="storyYear"></span>
+            <span id="storyAge"></span>
+            <span class="badge" id="storyChapter"></span>
+            <span class="badge" id="storyPhase"></span>
+          </div>
+          <h2 id="storyTitle"></h2>
+          <p id="storyNote"></p>
+        </article>
+
+        <div class="controls">
+          <div class="theme-controls" aria-label="配色主题">
+            <label class="theme-picker" for="themeSelect">
+              <span>配色</span>
+              <select id="themeSelect">
+                <option value="mushan">暮山紫</option>
+                <option value="gongqiang">宫墙朱</option>
+                <option value="shanshui">山水墨</option>
+                <option value="anye">暗夜盘</option>
+              </select>
+            </label>
+            <button class="theme-toggle" type="button" id="themeToggle" aria-label="切换到暗夜盘" title="快速切换暗夜盘">
+              <span class="moon-mark" aria-hidden="true">☾</span>
+              <span id="themeToggleText">暗夜盘</span>
+            </button>
+          </div>
+          <div class="control-row">
+            <button type="button" id="playButton" aria-label="播放">播放</button>
+            <button type="button" id="prevButton">上一节点</button>
+            <button type="button" id="nextButton">下一节点</button>
+            <button type="button" id="restartButton">重新开始</button>
+          </div>
+          <div class="progress-line" aria-hidden="true"><span id="progressFill"></span></div>
+          <div class="control-status">
+            <span id="nodeCounter">节点 1 / 27</span>
+            <span id="revealCounter">已揭示 1 / 27</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-section" aria-label="人生时间节点">
+      <div class="timeline-heading">
+        <h2>二十七个时间切片</h2>
+        <p>点击任意节点跳转 · 章节以低饱和边线区分</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+  </main>
+
+  <div id="errorBadge" role="alert"></div>
+
+  <script>
+    const candles = [
+      { year: 1328, age: 0, title: "濠州贫家降生", open: 6, high: 8, low: 4, close: 6, volume: 8, chapter: "乱世低开", phase: "低位开盘", note: "生于濠州钟离贫苦农家，人生起点接近社会底层。" },
+      { year: 1344, age: 16, title: "灾荒夺走至亲", open: 6, high: 7, low: 0, close: 1, volume: 98, chapter: "乱世低开", phase: "深渊回撤", note: "旱灾、饥荒与瘟疫接连袭来，父母和兄长相继去世。" },
+      { year: 1344, age: 16, title: "投身皇觉寺", open: 1, high: 5, low: 0, close: 3, volume: 78, chapter: "乱世低开", phase: "绝境托底", note: "为求生进入皇觉寺为僧，暂时获得容身之所。" },
+      { year: 1347, age: 19, title: "云游归寺", open: 3, high: 8, low: 1, close: 5, volume: 48, chapter: "乱世低开", phase: "低位求生", note: "结束一段托钵云游生活后重返寺院，在乱世底层继续寻找出路。" },
+      { year: 1352, age: 24, title: "投奔郭子兴义军", open: 5, high: 18, low: 3, close: 15, volume: 92, chapter: "义军起势", phase: "破局入局", note: "接受汤和邀约加入濠州红巾军，人生由求生转向争势。" },
+      { year: 1353, age: 25, title: "回乡募兵", open: 15, high: 28, low: 11, close: 24, volume: 72, chapter: "义军起势", phase: "兵势初升", note: "奉命返回乡里招募兵员，逐渐形成以旧识和乡人为骨干的队伍。" },
+      { year: 1354, age: 26, title: "独立经营定远一线", open: 24, high: 34, low: 18, close: 31, volume: 64, chapter: "义军起势", phase: "独立蓄势", note: "率徐达、汤和等核心部众向定远、滁州方向发展，自主性显著增强。" },
+      { year: 1355, age: 27, title: "攻克和州掌诸将", open: 31, high: 43, low: 25, close: 40, volume: 76, chapter: "义军起势", phase: "阶位抬升", note: "攻克和州并受命总领诸将，从基层将领迈向一方主帅。" },
+      { year: 1355, age: 27, title: "得水军渡江取太平", open: 40, high: 52, low: 34, close: 49, volume: 82, chapter: "义军起势", phase: "渡江突破", note: "获得巢湖水军后突破长江天险，夺取太平并打开江南局面。" },
+      { year: 1356, age: 28, title: "攻克集庆立足江南", open: 49, high: 64, low: 42, close: 61, volume: 88, chapter: "义军起势", phase: "根基跃升", note: "夺取集庆并改称应天府，建立稳定根据地与政权雏形。" },
+      { year: 1360, age: 32, title: "龙湾击退陈友谅", open: 61, high: 72, low: 46, close: 68, volume: 84, chapter: "逐鹿天下", phase: "高危反转", note: "在强敌压境下于龙湾反击取胜，守住应天并扭转战略被动。" },
+      { year: 1363, age: 35, title: "鄱阳湖决战", open: 68, high: 86, low: 48, close: 82, volume: 100, chapter: "逐鹿天下", phase: "决战拉升", note: "在高风险水战中击败陈友谅集团，跃升为南方最强势力。" },
+      { year: 1364, age: 36, title: "陈汉归降自立吴王", open: 82, high: 88, low: 70, close: 86, volume: 68, chapter: "逐鹿天下", phase: "强势整固", note: "陈理归降后控制长江中游，朱元璋进位吴王并强化政权架构。" },
+      { year: 1365, age: 37, title: "灭陈汉后转锋东征", open: 86, high: 90, low: 77, close: 88, volume: 58, chapter: "逐鹿天下", phase: "高位蓄势", note: "完成西线整合后集中力量进攻张士诚，统一江南进入收官阶段。" },
+      { year: 1367, age: 39, title: "平张士诚启动北伐", open: 88, high: 95, low: 81, close: 93, volume: 89, chapter: "逐鹿天下", phase: "统一加速", note: "攻克平江消灭主要割据对手，随即命徐达、常遇春挥师北伐。" },
+      { year: 1368, age: 40, title: "应天称帝建明", open: 93, high: 99, low: 88, close: 97, volume: 100, chapter: "逐鹿天下", phase: "登顶突破", note: "在应天即皇帝位，定国号大明、年号洪武，完成身份终极跃迁。" },
+      { year: 1368, age: 40, title: "明军攻占元大都", open: 97, high: 100, low: 92, close: 99, volume: 96, chapter: "逐鹿天下", phase: "高位封顶", note: "北伐军进入大都，元廷北撤，明朝取得中原统治的决定性优势。" },
+      { year: 1370, age: 42, title: "分封诸王布局天下", open: 99, high: 100, low: 91, close: 98, volume: 66, chapter: "洪武定盘", phase: "高位布局", note: "大封皇子与功臣以构建统治网络，同时埋下藩权扩张的远期风险。" },
+      { year: 1371, age: 43, title: "灭夏收取川蜀", open: 98, high: 100, low: 93, close: 99, volume: 60, chapter: "洪武定盘", phase: "版图扩张", note: "明军攻灭明夏政权，将四川纳入版图并继续完成全国整合。" },
+      { year: 1373, age: 45, title: "推进律令编修", open: 99, high: 100, low: 95, close: 99, volume: 52, chapter: "洪武定盘", phase: "制度固盘", note: "持续推动律令整理与编修，以制度化方式逐步固定新王朝的治理秩序。" },
+      { year: 1380, age: 52, title: "胡惟庸案废除丞相", open: 99, high: 100, low: 76, close: 94, volume: 97, chapter: "洪武定盘", phase: "高位震荡", note: "诛胡惟庸并撤中书省、废丞相，使皇权集中达到新的高度。" },
+      { year: 1381, age: 53, title: "发兵平定云南", open: 94, high: 99, low: 88, close: 97, volume: 78, chapter: "洪武定盘", phase: "回升扩张", note: "大举进军云南并瓦解当地元朝残余势力，帝国版图继续南伸。" },
+      { year: 1382, age: 54, title: "马皇后去世", open: 97, high: 99, low: 78, close: 90, volume: 82, chapter: "高位余震", phase: "情感重挫", note: "长期伴随并具有缓冲作用的马皇后去世，个人情感与决策环境同时受损。" },
+      { year: 1387, age: 59, title: "纳哈出降，东北形势缓和", open: 90, high: 100, low: 86, close: 98, volume: 84, chapter: "高位余震", phase: "军势回升", note: "纳哈出率部归降，明朝东北方向的军事压力明显缓和，但边疆威胁并未就此消失。" },
+      { year: 1392, age: 64, title: "太子朱标病逝", open: 98, high: 100, low: 72, close: 85, volume: 94, chapter: "高位余震", phase: "继承重挫", note: "精心培养的继承人朱标早逝，皇位传承方案遭受根本性冲击。" },
+      { year: 1393, age: 65, title: "蓝玉案再清功臣", open: 85, high: 96, low: 63, close: 88, volume: 98, chapter: "高位余震", phase: "高压收紧", note: "借蓝玉案大规模清洗军功集团，以惨烈代价重塑继承安全。" },
+      { year: 1398, age: 70, title: "洪武帝崩", open: 88, high: 92, low: 0, close: 0, volume: 100, chapter: "高位余震", phase: "终局归零", note: "朱元璋病逝于南京，个人权力曲线终止并将帝国交给皇太孙朱允炆。" }
+    ];
+
+    const chapterNames = ["乱世低开", "义军起势", "逐鹿天下", "洪武定盘", "高位余震"];
+    const chapterColors = {
+      "乱世低开": "var(--chapter-1)",
+      "义军起势": "var(--chapter-2)",
+      "逐鹿天下": "var(--chapter-3)",
+      "洪武定盘": "var(--chapter-4)",
+      "高位余震": "var(--chapter-5)"
+    };
+    const themeNames = {
+      mushan: "暮山紫",
+      gongqiang: "宫墙朱",
+      shanshui: "山水墨",
+      anye: "暗夜盘"
+    };
+    const stateLabels = {
+      opening: "开场命题",
+      travel: "节点旅行",
+      focus: "重点停留",
+      chapterReview: "章节回望",
+      globalReview: "全局回望"
+    };
+    const focusNodes = new Set([1, 4, 9, 11, 15, 16, 20, 22, 24, 25, 26]);
+    const chapterRanges = chapterNames.map((chapter) => {
+      const indices = candles.map((d, i) => d.chapter === chapter ? i : -1).filter(i => i >= 0);
+      return { chapter, start: indices[0], end: indices[indices.length - 1] };
+    });
+
+    const canvas = document.getElementById("chart");
+    const ctx = canvas.getContext("2d");
+    const timeline = document.getElementById("timeline");
+    const chapterStrip = document.getElementById("chapterStrip");
+    const playButton = document.getElementById("playButton");
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const gatePanel = document.getElementById("gatePanel");
+    const gateKicker = document.getElementById("gateKicker");
+    const gateTitle = document.getElementById("gateTitle");
+    const gateCopy = document.getElementById("gateCopy");
+    const gateButton = document.getElementById("gateButton");
+    const gateHint = document.querySelector(".gate-hint");
+    const themeSelect = document.getElementById("themeSelect");
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleText = document.getElementById("themeToggleText");
+    const WORLD_STEP = 86;
+    const WORLD_START = 68;
+    const TRAJECTORY_MOVE_MS = 4000;
+    const CANDLE_DELAY_MS = 220;
+    const VOLUME_DELAY_MS = 140;
+    const CANDLE_ANIMATION_MS = 140;
+    const VOLUME_ANIMATION_MS = 150;
+    const SEGMENT_MOVE_MS = TRAJECTORY_MOVE_MS / (candles.length - 1);
+    const CAMERA_ZOOM = Object.freeze({
+      travel: 1,
+      focus: 1.12,
+      chapterReview: 0.82,
+      globalReview: 0.5
+    });
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const playback = {
+      state: "opening",
+      playing: false,
+      nextAt: Infinity,
+      reviewedChapter: null
+    };
+    const selection = { index: 0 };
+    const revealProgress = {
+      line: 0,
+      movementMs: 0,
+      activeMs: 0,
+      chapterIndex: 0,
+      crossedAt: Array(candles.length).fill(null),
+      candle: Array(candles.length).fill(0),
+      volume: Array(candles.length).fill(0)
+    };
+    const camera = {
+      x: WORLD_START,
+      targetX: WORLD_START,
+      y: 50,
+      targetY: 50,
+      zoom: CAMERA_ZOOM.travel,
+      targetZoom: CAMERA_ZOOM.travel,
+      valueZoom: 1,
+      targetValueZoom: 1,
+      settling: false,
+      fastCatchUp: false
+    };
+    const timelineFollow = { target: 0 };
+    const themeState = { current: "mushan", previousLight: "mushan" };
+    let themeColors = {};
+    let chartWidth = 0;
+    let chartHeight = 0;
+    let lastFrame = performance.now();
+
+    function refreshThemeColors() {
+      const styles = getComputedStyle(document.documentElement);
+      const read = name => styles.getPropertyValue(name).trim();
+      themeColors = {
+        gridZero: read("--canvas-grid-zero"),
+        grid: read("--canvas-grid"),
+        axis: read("--canvas-axis"),
+        muted: read("--canvas-muted"),
+        trajectory: read("--trajectory-line"),
+        trajectoryHead: read("--trajectory-head"),
+        rising: read("--vermilion"),
+        falling: read("--jade"),
+        glowStart: read("--current-glow-start"),
+        glowEnd: read("--current-glow-end"),
+        ring: read("--current-ring"),
+        candleEdge: read("--candle-edge"),
+        year: read("--canvas-year"),
+        yearMuted: read("--canvas-year-muted"),
+        labelBg: read("--canvas-label-bg"),
+        labelBorder: read("--canvas-label-border"),
+        labelText: read("--canvas-label-text"),
+        opening: read("--canvas-opening"),
+        openingMuted: read("--canvas-opening-muted")
+      };
+    }
+
+    function applyTheme(theme) {
+      if (!Object.hasOwn(themeNames, theme)) return;
+      if (theme !== "anye") themeState.previousLight = theme;
+      themeState.current = theme;
+      document.documentElement.dataset.theme = theme;
+      themeSelect.value = theme;
+      const isDark = theme === "anye";
+      themeToggleText.textContent = isDark ? themeNames[themeState.previousLight] : "暗夜盘";
+      themeToggle.setAttribute("aria-label", isDark ? `返回${themeNames[themeState.previousLight]}` : "切换到暗夜盘");
+      themeToggle.title = themeToggle.getAttribute("aria-label");
+      refreshThemeColors();
+    }
+
+    function setupThemeUI() {
+      themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
+      themeToggle.addEventListener("click", () => {
+        applyTheme(themeState.current === "anye" ? themeState.previousLight : "anye");
+      });
+      applyTheme("mushan");
+    }
+
+    function validateData() {
+      const allowed = new Set(chapterNames);
+      const errors = [];
+      if (candles.length !== 27) errors.push(`节点数为 ${candles.length}`);
+      candles.forEach((d, i) => {
+        const values = [d.open, d.high, d.low, d.close, d.volume];
+        if (values.some(v => v < 0 || v > 100)) errors.push(`第 ${i + 1} 条越界`);
+        if (d.low > d.open || d.low > d.close || d.open > d.high || d.close > d.high) errors.push(`第 ${i + 1} 条K线关系错误`);
+        if (!allowed.has(d.chapter)) errors.push(`第 ${i + 1} 条章节错误`);
+        if (i > 0 && d.open !== candles[i - 1].close) errors.push(`第 ${i + 1} 条不连续`);
+      });
+      if (errors.length) throw new Error(errors.join("；"));
+      return true;
+    }
+
+    function setupStaticUI() {
+      chapterStrip.innerHTML = chapterNames.map(name =>
+        `<div class="chapter-tab" style="--chapter-color:${chapterColors[name]}">${name}</div>`
+      ).join("");
+
+      timeline.innerHTML = candles.map((d, i) => `
+        <button class="timeline-card" type="button" data-index="${i}" style="--chapter-color:${chapterColors[d.chapter]}" aria-label="跳转到 ${d.year} 年：${d.title}">
+          <span class="year">${d.year}</span>
+          <span class="title">${d.title}</span>
+        </button>
+      `).join("");
+
+      timeline.addEventListener("click", (event) => {
+        const card = event.target.closest(".timeline-card");
+        if (!card || playback.state === "opening" || playback.state === "chapterReview") return;
+        jumpTo(Number(card.dataset.index), true);
+      });
+    }
+
+    function syncPlaybackControls() {
+      const atGate = playback.state === "opening" || playback.state === "chapterReview";
+      const finalChapterGate = playback.state === "chapterReview" && selection.index === candles.length - 1;
+      const touchGuidance = window.matchMedia("(pointer: coarse)").matches || window.innerWidth <= 860;
+      gatePanel.hidden = !atGate;
+      prevButton.disabled = atGate;
+      nextButton.disabled = atGate;
+
+      if (playback.state === "opening") {
+        gateKicker.textContent = "OPENING";
+        gateTitle.textContent = "故事尚未开始";
+        gateCopy.textContent = "从乱世最低处出发，沿二十七个节点走完七十年人生。";
+        gateButton.textContent = "开始播放";
+        playButton.textContent = "开始播放";
+        gateHint.textContent = touchGuidance ? "轻点开始播放" : "桌面端可按空格键";
+      } else if (playback.state === "chapterReview") {
+        const range = chapterRanges.find(r => r.chapter === candles[selection.index].chapter);
+        const chapterNumber = chapterRanges.indexOf(range) + 1;
+        gateKicker.textContent = `CHAPTER ${chapterNumber} / ${chapterRanges.length}`;
+        gateTitle.textContent = `${range.chapter} · 本章回望`;
+        gateCopy.textContent = `${candles[range.start].year}—${candles[range.end].year}，本章停在“${candles[range.end].title}”。${finalChapterGate ? "继续后展开完整人生走势。" : "继续后进入下一章。"}`;
+        gateButton.textContent = finalChapterGate ? "进入全局回望" : "继续下一章";
+        playButton.textContent = gateButton.textContent;
+        gateHint.textContent = touchGuidance
+          ? (finalChapterGate ? "轻点进入全局回望" : "轻点继续下一章")
+          : "桌面端可按空格键";
+      } else if (playback.state === "globalReview") {
+        playButton.textContent = "重新播放";
+      } else {
+        playButton.textContent = playback.playing ? "暂停" : "继续播放";
+      }
+      playButton.setAttribute("aria-label", playButton.textContent);
+    }
+
+    function setPlaybackState(state, delay = Infinity) {
+      playback.state = state;
+      playback.nextAt = playback.playing && Number.isFinite(delay) ? performance.now() + delay : Infinity;
+      document.body.dataset.playbackState = state;
+      document.getElementById("stateLabel").textContent = stateLabels[state];
+      syncPlaybackControls();
+    }
+
+    function worldX(index) { return WORLD_START + index * WORLD_STEP; }
+    function worldXAt(progress) { return WORLD_START + progress * WORLD_STEP; }
+
+    function verticalView(start, end, minSpan = 36, padding = 7) {
+      const segment = candles.slice(start, end + 1);
+      const low = Math.min(...segment.map(d => d.low));
+      const high = Math.max(...segment.map(d => d.high));
+      const span = Math.min(100, Math.max(minSpan, high - low + padding * 2));
+      const half = span / 2;
+      const center = Math.max(half, Math.min(100 - half, (low + high) / 2));
+      return { center, span };
+    }
+
+    function setCameraTargets(x, zoom, view, compensateZoom = false, fast = false) {
+      camera.targetX = x;
+      camera.targetZoom = zoom;
+      camera.targetY = view.center;
+      camera.targetValueZoom = (100 / view.span) / (compensateZoom ? zoom : 1);
+      camera.settling = true;
+      camera.fastCatchUp = fast;
+    }
+
+    function setCameraForState(fast = false) {
+      if (playback.state === "globalReview") {
+        setCameraTargets(
+          (worldX(0) + worldX(candles.length - 1)) / 2,
+          CAMERA_ZOOM.globalReview,
+          { center: 50, span: 100 },
+          true,
+          fast
+        );
+        return;
+      }
+      if (playback.state === "chapterReview") {
+        const range = chapterRanges.find(r => r.chapter === candles[selection.index].chapter);
+        const baseScale = chartWidth < 700 ? 0.62 : 0.78;
+        const reviewCenter = (worldX(range.start) + worldX(range.end)) / 2;
+        const reviewLead = chartWidth >= 900 ? chartWidth * 0.29 / (baseScale * CAMERA_ZOOM.chapterReview) : 0;
+        setCameraTargets(
+          reviewCenter + reviewLead,
+          CAMERA_ZOOM.chapterReview,
+          verticalView(range.start, range.end, 42, 7),
+          true,
+          fast
+        );
+        return;
+      }
+      const range = chapterRanges.find(r => selection.index >= r.start && selection.index <= r.end);
+      const viewEnd = Math.min(range.end, selection.index + 1);
+      const zoom = playback.state === "focus" ? CAMERA_ZOOM.focus : CAMERA_ZOOM.travel;
+      setCameraTargets(worldX(selection.index), zoom, verticalView(range.start, viewEnd), false, fast);
+    }
+
+    function setCameraForNextChapter(fast = false) {
+      const range = chapterRanges[revealProgress.chapterIndex];
+      const zoom = focusNodes.has(range.start) ? CAMERA_ZOOM.focus : CAMERA_ZOOM.travel;
+      setCameraTargets(worldX(range.start), zoom, verticalView(range.start, Math.min(range.end, range.start + 1)), false, fast);
+    }
+
+    function snapCameraToTargets() {
+      camera.x = camera.targetX;
+      camera.y = camera.targetY;
+      camera.zoom = camera.targetZoom;
+      camera.valueZoom = camera.targetValueZoom;
+      camera.settling = false;
+      camera.fastCatchUp = false;
+    }
+
+    function setTimelineTarget(index) {
+      const activeCard = document.querySelector(`.timeline-card[data-index="${index}"]`);
+      if (!activeCard) return;
+      const desired = activeCard.offsetLeft + activeCard.offsetWidth / 2 - timeline.clientWidth / 2;
+      timelineFollow.target = Math.max(0, Math.min(timeline.scrollWidth - timeline.clientWidth, desired));
+    }
+
+    function setChapterTarget(index, force = false) {
+      const chapterIndex = chapterRanges.findIndex(range => index >= range.start && index <= range.end);
+      if (chapterIndex < 0 || (!force && chapterIndex === setChapterTarget.currentIndex)) return;
+      setChapterTarget.currentIndex = chapterIndex;
+      if (window.innerWidth > 860) {
+        chapterStrip.scrollLeft = 0;
+        return;
+      }
+      const activeTab = chapterStrip.children[chapterIndex];
+      if (!activeTab) return;
+      const desired = activeTab.offsetLeft + activeTab.offsetWidth / 2 - chapterStrip.clientWidth / 2;
+      const target = Math.max(0, Math.min(chapterStrip.scrollWidth - chapterStrip.clientWidth, desired));
+      chapterStrip.scrollTo({ left: target, behavior: reducedMotion.matches ? "auto" : "smooth" });
+    }
+    setChapterTarget.currentIndex = -1;
+
+    function updateStory() {
+      const d = candles[selection.index];
+      document.getElementById("storyYear").textContent = `${d.year} 年`;
+      document.getElementById("storyAge").textContent = `约 ${d.age} 岁`;
+      document.getElementById("storyChapter").textContent = d.chapter;
+      document.getElementById("storyPhase").textContent = d.phase;
+      document.getElementById("storyTitle").textContent = d.title;
+      document.getElementById("storyNote").textContent = d.note;
+      document.getElementById("nodeCounter").textContent = `节点 ${selection.index + 1} / ${candles.length}`;
+      document.getElementById("revealCounter").textContent = `已揭示 ${selection.index + 1} / ${candles.length}`;
+      document.getElementById("progressFill").style.width = `${((selection.index + 1) / candles.length) * 100}%`;
+      document.querySelectorAll(".timeline-card").forEach((card, i) => {
+        card.classList.toggle("active", i === selection.index);
+        card.setAttribute("aria-current", i === selection.index ? "step" : "false");
+      });
+      setTimelineTarget(selection.index);
+      setChapterTarget(selection.index);
+      syncPlaybackControls();
+    }
+
+    function clamp01(value) {
+      return Math.max(0, Math.min(1, value));
+    }
+
+    function easeOutCubic(value) {
+      return 1 - Math.pow(1 - clamp01(value), 3);
+    }
+
+    function syncRevealTo(index) {
+      revealProgress.line = index;
+      revealProgress.movementMs = index * SEGMENT_MOVE_MS;
+      revealProgress.activeMs = Math.max(revealProgress.activeMs, CANDLE_DELAY_MS + VOLUME_DELAY_MS + VOLUME_ANIMATION_MS);
+      revealProgress.chapterIndex = Math.max(0, chapterRanges.findIndex(range => index >= range.start && index <= range.end));
+      revealProgress.crossedAt.fill(null);
+      revealProgress.candle.fill(0);
+      revealProgress.volume.fill(0);
+      for (let i = 0; i <= index; i += 1) {
+        revealProgress.crossedAt[i] = 0;
+        revealProgress.candle[i] = 1;
+        revealProgress.volume[i] = 1;
+      }
+    }
+
+    function jumpTo(index, userInitiated = false) {
+      selection.index = Math.max(0, Math.min(candles.length - 1, index));
+      syncRevealTo(selection.index);
+      if (userInitiated) {
+        playback.playing = false;
+      }
+      setPlaybackState(focusNodes.has(selection.index) ? "focus" : "travel");
+      updateStory();
+      setCameraForState(userInitiated);
+      timeline.scrollLeft = timelineFollow.target;
+    }
+
+    function continueFromGate() {
+      if (playback.state === "opening") {
+        playback.playing = true;
+        selection.index = 0;
+        const firstState = focusNodes.has(0) ? "focus" : "travel";
+        setPlaybackState(firstState);
+        setCameraForState();
+      } else if (playback.state === "chapterReview") {
+        if (selection.index === candles.length - 1) {
+          syncRevealTo(candles.length - 1);
+          playback.playing = false;
+          setPlaybackState("globalReview");
+          setCameraForState();
+        } else {
+          revealProgress.chapterIndex += 1;
+          playback.playing = true;
+          setPlaybackState(focusNodes.has(selection.index) ? "focus" : "travel");
+          setCameraForNextChapter();
+        }
+      } else {
+        return;
+      }
+      updateStory();
+    }
+
+    function advanceStateMachine(dt) {
+      if (!playback.playing || (playback.state !== "travel" && playback.state !== "focus")) return;
+
+      const range = chapterRanges[revealProgress.chapterIndex];
+      const chapterMovementLimit = range.end * SEGMENT_MOVE_MS;
+      const previousLine = revealProgress.line;
+      revealProgress.activeMs += dt;
+
+      if (revealProgress.movementMs < chapterMovementLimit) {
+        revealProgress.movementMs = Math.min(chapterMovementLimit, revealProgress.movementMs + dt);
+        revealProgress.line = revealProgress.movementMs / SEGMENT_MOVE_MS;
+        const firstCrossed = Math.floor(previousLine) + 1;
+        const lastCrossed = Math.floor(revealProgress.line + 0.000001);
+        for (let i = firstCrossed; i <= lastCrossed; i += 1) {
+          if (i >= candles.length || revealProgress.crossedAt[i] !== null) continue;
+          const span = revealProgress.line - previousLine;
+          const fraction = span > 0 ? (i - previousLine) / span : 1;
+          revealProgress.crossedAt[i] = revealProgress.activeMs - dt + dt * clamp01(fraction);
+        }
+      }
+
+      let newestEvent = selection.index;
+      for (let i = 1; i < candles.length; i += 1) {
+        const crossedAt = revealProgress.crossedAt[i];
+        if (crossedAt === null) continue;
+        const elapsed = revealProgress.activeMs - crossedAt;
+        revealProgress.candle[i] = Math.max(revealProgress.candle[i], easeOutCubic((elapsed - CANDLE_DELAY_MS) / CANDLE_ANIMATION_MS));
+        revealProgress.volume[i] = Math.max(revealProgress.volume[i], easeOutCubic((elapsed - CANDLE_DELAY_MS - VOLUME_DELAY_MS) / VOLUME_ANIMATION_MS));
+        if (elapsed >= CANDLE_DELAY_MS) newestEvent = Math.max(newestEvent, i);
+      }
+
+      if (newestEvent !== selection.index) {
+        selection.index = newestEvent;
+        setPlaybackState(focusNodes.has(selection.index) ? "focus" : "travel");
+        updateStory();
+        setCameraForState();
+      }
+
+      if (revealProgress.line >= range.end && revealProgress.volume[range.end] >= 0.999) {
+        playback.reviewedChapter = range.chapter;
+        playback.playing = false;
+        setPlaybackState("chapterReview");
+        setCameraForState();
+      }
+    }
+
+    function togglePlay() {
+      if (playback.state === "opening" || playback.state === "chapterReview") {
+        continueFromGate();
+        return;
+      }
+      if (playback.state === "globalReview") {
+        restart();
+        return;
+      }
+      playback.playing = !playback.playing;
+      playback.nextAt = Infinity;
+      camera.settling = playback.playing;
+      syncPlaybackControls();
+    }
+
+    function restart() {
+      playback.playing = false;
+      playback.reviewedChapter = null;
+      selection.index = 0;
+      revealProgress.activeMs = 0;
+      syncRevealTo(0);
+      timeline.scrollLeft = 0;
+      timelineFollow.target = 0;
+      setPlaybackState("opening");
+      setCameraForState();
+      snapCameraToTargets();
+      updateStory();
+    }
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      chartWidth = rect.width;
+      chartHeight = rect.height;
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      setCameraForState();
+    }
+
+    function screenX(index) {
+      const baseScale = horizontalWorldScale();
+      return chartWidth / 2 + (worldX(index) - camera.x) * baseScale * camera.zoom;
+    }
+
+    function screenXAt(progress) {
+      const baseScale = horizontalWorldScale();
+      return chartWidth / 2 + (worldXAt(progress) - camera.x) * baseScale * camera.zoom;
+    }
+
+    function horizontalWorldScale() {
+      const baseScale = chartWidth < 700 ? 0.62 : 0.78;
+      if (chartWidth >= 700 || playback.state !== "globalReview") return baseScale;
+      const worldSpan = (candles.length - 1) * WORLD_STEP;
+      const safeInset = chartWidth <= 560 ? 54 : 35;
+      return Math.min(baseScale, Math.max(0.1, (chartWidth - safeInset * 2) / (worldSpan * Math.max(camera.zoom, 0.001))));
+    }
+
+    function mobileGlobalYearTicks() {
+      const lastIndex = candles.length - 1;
+      const maxTicks = Math.max(6, Math.min(9, Math.floor((chartWidth - 108) / 38)));
+      const selected = [];
+      const labelWidth = index => String(candles[index].year).length * 6 + 8;
+      const canFit = index => selected.every(other =>
+        Math.abs(screenX(index) - screenX(other)) >= (labelWidth(index) + labelWidth(other)) / 2 + 6
+      );
+      const add = index => {
+        if (!selected.includes(index) && canFit(index)) selected.push(index);
+      };
+
+      [0, lastIndex, selection.index].forEach(add);
+      chapterRanges.map(range => range.start).forEach(add);
+
+      while (selected.length < maxTicks) {
+        let candidate = -1;
+        let bestDistance = -1;
+        for (let index = 0; index <= lastIndex; index += 1) {
+          if (selected.includes(index) || !canFit(index)) continue;
+          const distance = Math.min(...selected.map(other => Math.abs(screenX(index) - screenX(other))));
+          if (distance > bestDistance) {
+            bestDistance = distance;
+            candidate = index;
+          }
+        }
+        if (candidate < 0) break;
+        selected.push(candidate);
+      }
+      return new Set(selected);
+    }
+
+    function valueY(value) {
+      const top = 48;
+      const plotBottom = chartHeight - 142;
+      const plotCenter = (top + plotBottom) / 2;
+      return plotCenter - ((value - camera.y) / 100) * (plotBottom - top) * camera.valueZoom * camera.zoom;
+    }
+
+    function roundedRect(context, x, y, width, height, radius) {
+      const r = Math.min(radius, Math.abs(width) / 2, Math.abs(height) / 2);
+      context.beginPath();
+      context.roundRect(x, y, width, height, r);
+    }
+
+    function drawChart() {
+      ctx.clearRect(0, 0, chartWidth, chartHeight);
+      const plotLeft = 54;
+      const plotRight = chartWidth - 22;
+      const plotTop = 48;
+      const plotBottom = chartHeight - 142;
+      const volumeTop = chartHeight - 105;
+      const volumeBottom = chartHeight - 37;
+      const adaptiveMobileYears = chartWidth <= 560 && playback.state === "globalReview"
+        ? mobileGlobalYearTicks()
+        : null;
+
+      ctx.save();
+      ctx.font = "11px system-ui, sans-serif";
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+      [0, 25, 50, 75, 100].forEach(value => {
+        const y = valueY(value);
+        if (y < plotTop - 1 || y > plotBottom + 1) return;
+        ctx.strokeStyle = value === 0 ? themeColors.gridZero : themeColors.grid;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(plotLeft, y);
+        ctx.lineTo(plotRight, y);
+        ctx.stroke();
+        ctx.fillStyle = themeColors.axis;
+        ctx.fillText(String(value), plotLeft - 10, y);
+      });
+      ctx.fillStyle = themeColors.muted;
+      ctx.textAlign = "left";
+      ctx.fillText("冲击量", plotLeft, volumeTop - 13);
+      ctx.restore();
+
+      const lineHead = Math.min(candles.length - 1, revealProgress.line);
+      const lastLineNode = Math.floor(lineHead);
+      if (lineHead >= 0) {
+        ctx.save();
+        ctx.beginPath();
+        for (let i = 0; i <= lastLineNode; i += 1) {
+          const d = candles[i];
+          const x = screenX(i);
+          const y = valueY(d.close);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        if (lineHead > lastLineNode && lastLineNode < candles.length - 1) {
+          const fraction = lineHead - lastLineNode;
+          const value = candles[lastLineNode].close + (candles[lastLineNode + 1].close - candles[lastLineNode].close) * fraction;
+          ctx.lineTo(screenXAt(lineHead), valueY(value));
+        }
+        ctx.strokeStyle = themeColors.trajectory;
+        ctx.lineWidth = 2.1;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        const headValue = lineHead === lastLineNode || lastLineNode === candles.length - 1
+          ? candles[lastLineNode].close
+          : candles[lastLineNode].close + (candles[lastLineNode + 1].close - candles[lastLineNode].close) * (lineHead - lastLineNode);
+        ctx.setLineDash([]);
+        ctx.fillStyle = themeColors.trajectoryHead;
+        ctx.beginPath();
+        ctx.arc(screenXAt(lineHead), valueY(headValue), 3.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      candles.forEach((d, i) => {
+        const candleAmount = revealProgress.candle[i];
+        const volumeAmount = revealProgress.volume[i];
+        if (candleAmount <= 0 && volumeAmount <= 0) return;
+        const x = screenX(i);
+        if (x < -50 || x > chartWidth + 50) return;
+        const rising = d.close >= d.open;
+        const color = rising ? themeColors.rising : themeColors.falling;
+        const candleScale = 0.84 + candleAmount * 0.16;
+        const currentScale = i === selection.index ? (playback.state === "focus" ? 1.08 : 1.04) : 1;
+        const bodyWidth = Math.max(7, 15 * camera.zoom) * candleScale * currentScale;
+        const openY = valueY(d.open);
+        const closeY = valueY(d.close);
+        const highY = valueY(d.high);
+        const lowY = valueY(d.low);
+        const candleCenterY = (highY + lowY) / 2;
+        const scaledOpenY = candleCenterY + (openY - candleCenterY) * candleScale;
+        const scaledCloseY = candleCenterY + (closeY - candleCenterY) * candleScale;
+        const scaledHighY = candleCenterY + (highY - candleCenterY) * candleScale;
+        const scaledLowY = candleCenterY + (lowY - candleCenterY) * candleScale;
+        const bodyTop = Math.min(scaledOpenY, scaledCloseY);
+        const bodyHeight = Math.max(3, Math.abs(scaledCloseY - scaledOpenY));
+
+        ctx.save();
+        ctx.globalAlpha = candleAmount;
+        if (i === selection.index) {
+          const pulse = reducedMotion.matches ? 0.35 : (Math.sin(performance.now() / 360) + 1) / 2;
+          const emphasisRadius = 24 + pulse * 2.5;
+          const gradient = ctx.createRadialGradient(x, (highY + lowY) / 2, 2, x, (highY + lowY) / 2, emphasisRadius);
+          gradient.addColorStop(0, themeColors.glowStart);
+          gradient.addColorStop(1, themeColors.glowEnd);
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(x, (highY + lowY) / 2, emphasisRadius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = themeColors.ring;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(x, (highY + lowY) / 2, 18 + pulse * 1.5, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.strokeStyle = color;
+        ctx.lineWidth = i === selection.index ? 2.2 : 1.45;
+        ctx.beginPath();
+        ctx.moveTo(x, scaledHighY);
+        ctx.lineTo(x, scaledLowY);
+        ctx.stroke();
+
+        ctx.fillStyle = color;
+        roundedRect(ctx, x - bodyWidth / 2, bodyTop, bodyWidth, bodyHeight, 2);
+        ctx.fill();
+        if (i === selection.index) {
+          ctx.strokeStyle = themeColors.candleEdge;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+
+        if (volumeAmount > 0) {
+          const volumeHeight = (d.volume / 100) * (volumeBottom - volumeTop) * volumeAmount;
+          ctx.globalAlpha = volumeAmount * (i === selection.index ? 0.78 : 0.35);
+          ctx.fillStyle = color;
+          roundedRect(ctx, x - bodyWidth / 2, volumeBottom - volumeHeight, bodyWidth, volumeHeight, 2);
+          ctx.fill();
+        }
+
+        ctx.globalAlpha = candleAmount;
+        ctx.fillStyle = i === selection.index ? themeColors.year : themeColors.yearMuted;
+        ctx.font = `${i === selection.index ? 700 : 500} 10px system-ui, sans-serif`;
+        ctx.textAlign = "center";
+        const compactGlobalYears = chartWidth < 700 && playback.state === "globalReview";
+        const showYear = adaptiveMobileYears
+          ? adaptiveMobileYears.has(i)
+          : (!compactGlobalYears || i === 0 || i === candles.length - 1 || i % 3 === 0 || i === selection.index);
+        if (showYear) {
+          ctx.fillText(String(d.year), x, chartHeight - 17);
+        }
+
+        if (i === selection.index && candleAmount > 0.92) {
+          const label = `${d.year} · 约${d.age}岁`;
+          ctx.font = "600 11px system-ui, sans-serif";
+          const labelWidth = ctx.measureText(label).width + 18;
+          const labelX = Math.max(plotLeft + labelWidth / 2, Math.min(plotRight - labelWidth / 2, x));
+          const labelY = Math.max(plotTop + 14, Math.min(plotBottom - 18, highY - 24));
+          ctx.globalAlpha = 0.92 * candleAmount;
+          ctx.fillStyle = themeColors.labelBg;
+          roundedRect(ctx, labelX - labelWidth / 2, labelY - 11, labelWidth, 22, 11);
+          ctx.fill();
+          ctx.strokeStyle = themeColors.labelBorder;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ctx.fillStyle = themeColors.labelText;
+          ctx.textBaseline = "middle";
+          ctx.fillText(label, labelX, labelY + 0.5);
+        }
+        ctx.restore();
+      });
+
+      if (playback.state === "opening") {
+        ctx.save();
+        ctx.fillStyle = themeColors.opening;
+        ctx.textAlign = "center";
+        ctx.font = "600 19px 'Songti SC', SimSun, serif";
+        ctx.fillText("从一根低位开盘，走向一个王朝的高点", chartWidth / 2, 93);
+        ctx.font = "12px system-ui, sans-serif";
+        ctx.fillStyle = themeColors.openingMuted;
+        ctx.fillText("点击播放，让镜头沿二十七个节点向前", chartWidth / 2, 119);
+        ctx.restore();
+      }
+    }
+
+    function animate(now) {
+      const dt = Math.min(40, now - lastFrame);
+      lastFrame = now;
+      const timelineEase = reducedMotion.matches ? 0.45 : 1 - Math.pow(0.9, dt / 16.67);
+      if (playback.playing) {
+        advanceStateMachine(dt);
+        timeline.scrollLeft += (timelineFollow.target - timeline.scrollLeft) * timelineEase;
+      }
+      if (camera.settling) {
+        const easeBase = reducedMotion.matches ? 0.7 : (camera.fastCatchUp ? 0.84 : 0.94);
+        const cameraEase = 1 - Math.pow(easeBase, dt / 16.67);
+        camera.x += (camera.targetX - camera.x) * cameraEase;
+        camera.y += (camera.targetY - camera.y) * cameraEase;
+        camera.zoom += (camera.targetZoom - camera.zoom) * cameraEase;
+        camera.valueZoom += (camera.targetValueZoom - camera.valueZoom) * cameraEase;
+        const settled = Math.abs(camera.targetX - camera.x) < 0.15
+          && Math.abs(camera.targetY - camera.y) < 0.015
+          && Math.abs(camera.targetZoom - camera.zoom) < 0.0005
+          && Math.abs(camera.targetValueZoom - camera.valueZoom) < 0.0005;
+        if (settled) snapCameraToTargets();
+      }
+      drawChart();
+      requestAnimationFrame(animate);
+    }
+
+    playButton.addEventListener("click", togglePlay);
+    gateButton.addEventListener("click", continueFromGate);
+    prevButton.addEventListener("click", () => jumpTo(selection.index - 1, true));
+    nextButton.addEventListener("click", () => jumpTo(selection.index + 1, true));
+    document.getElementById("restartButton").addEventListener("click", restart);
+    document.addEventListener("keydown", (event) => {
+      const interactive = event.target.closest?.("button, input, textarea, select, a");
+      if (event.code !== "Space" || event.repeat || interactive || !window.matchMedia("(pointer: fine)").matches) return;
+      if (playback.state === "opening" || playback.state === "chapterReview") {
+        event.preventDefault();
+        continueFromGate();
+      }
+    });
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      setChapterTarget(selection.index, true);
+      syncPlaybackControls();
+    });
+    window.addEventListener("error", (event) => {
+      const badge = document.getElementById("errorBadge");
+      badge.style.display = "block";
+      badge.textContent = `JavaScript 错误：${event.message}`;
+    });
+
+    try {
+      validateData();
+      setupThemeUI();
+      setupStaticUI();
+      resizeCanvas();
+      restart();
+      requestAnimationFrame(animate);
+      window.__lifeKlineDebug = {
+        candles,
+        validateData,
+        getState: () => ({
+          playbackState: playback.state,
+          playing: playback.playing,
+          currentIndex: selection.index,
+          revealed: selection.index + 1,
+          lineProgress: revealProgress.line,
+          movementMs: revealProgress.movementMs,
+          activeMs: revealProgress.activeMs,
+          candleFront: revealProgress.candle.findLastIndex(value => value > 0),
+          volumeFront: revealProgress.volume.findLastIndex(value => value > 0),
+          currentCandleAmount: revealProgress.candle[selection.index],
+          currentVolumeAmount: revealProgress.volume[selection.index],
+          camera: {
+            x: camera.x,
+            targetX: camera.targetX,
+            y: camera.y,
+            targetY: camera.targetY,
+            zoom: camera.zoom,
+            targetZoom: camera.targetZoom,
+            valueZoom: camera.valueZoom,
+            targetValueZoom: camera.targetValueZoom,
+            settling: camera.settling
+          }
+        }),
+        jumpTo: (index) => jumpTo(index, true),
+        advance: advanceStateMachine,
+        continueFromGate,
+        setTheme: applyTheme,
+        getTheme: () => ({ ...themeState }),
+        timelineState: () => ({ scrollLeft: timeline.scrollLeft, target: timelineFollow.target }),
+        timing: { trajectoryMs: TRAJECTORY_MOVE_MS, candleDelayMs: CANDLE_DELAY_MS, volumeDelayMs: VOLUME_DELAY_MS },
+        cameraZoom: CAMERA_ZOOM
+      };
+    } catch (error) {
+      const badge = document.getElementById("errorBadge");
+      badge.style.display = "block";
+      badge.textContent = `初始化失败：${error.message}`;
+      throw error;
+    }
+  </script>
+</body>
+</html>
