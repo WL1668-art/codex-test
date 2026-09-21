@@ -1,0 +1,6 @@
+interface:
+  display_name: "PPT Production"
+  short_description: "Build premium editable PPTX decks with staged design QA"
+  default_prompt: "Use $ppt-production to plan, design, preview, build, and validate an editable presentation."
+policy:
+  allow_implicit_invocation: true
