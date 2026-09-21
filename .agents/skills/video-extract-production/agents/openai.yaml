@@ -1,0 +1,6 @@
+interface:
+  display_name: "Video Extract Production"
+  short_description: "Build a verified video knowledge page"
+  default_prompt: "Use $video-extract-production to turn this video URL into a verified, timestamped knowledge page."
+policy:
+  allow_implicit_invocation: true

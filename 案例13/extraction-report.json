@@ -1,0 +1,66 @@
+{
+  "source": {
+    "original_url": "https://www.bilibili.com/video/BV1xuVC6AEbg/",
+    "bv_id": "BV1xuVC6AEbg",
+    "original_title": "今天把我关于《丧尸清道夫》的创作思路分享给大家，如果能帮到你，我会很开心。",
+    "uploader": "Mx-Shell",
+    "metadata_duration": 2572.885
+  },
+  "subtitles": {
+    "official": "unavailable_without_login",
+    "cc": "unavailable_without_login",
+    "auto": "unavailable_without_login",
+    "multipart": "no_multipart_subtitles_listed",
+    "final_decision": "asr",
+    "decision_reason": "Raw metadata has no subtitle entries. Unauthenticated subtitle listing exposed only danmaku XML and reported that sign-in is required for subtitles; no credentials were used or stored."
+  },
+  "audio": {
+    "source_file": "media/audio.mp3",
+    "ffprobe_duration": 2572.885333,
+    "metadata_duration_difference": 0.000333,
+    "difference_percent": 0.00001294,
+    "validation_result": "passed"
+  },
+  "asr": {
+    "backend": "whisper.cpp 1.9.2",
+    "model": "ggml-small-q5_1.bin",
+    "language": "zh",
+    "hardware_mode": "CPU-only; 4 threads",
+    "segment_count": 591,
+    "transcript_last_end": 2572.56,
+    "audio_duration": 2572.885313,
+    "tail_gap_seconds": 0.325313,
+    "tail_gap_percent": 0.0126438982,
+    "result": "passed"
+  },
+  "chapters": [
+    {"id": "c1", "title": "从成片复盘到创作问题", "start": "00:00:00", "end": "00:00:40", "boundary_reason": "Opening scope ends and the three-part prompt framework begins."},
+    {"id": "c2", "title": "提示词不是一句话：基础、质感、画面内容", "start": "00:00:41", "end": "00:08:15", "boundary_reason": "Prompt framework ends and the product/agent demonstration begins."},
+    {"id": "c3", "title": "从剧本到画布：资产拆解与组织", "start": "00:08:16", "end": "00:18:18", "boundary_reason": "Asset and canvas instruction ends and the single-shot generation demonstration begins."},
+    {"id": "c4", "title": "单镜头：连接元素，批量试错，挑出可用段", "start": "00:18:19", "end": "00:25:45", "boundary_reason": "Single-shot candidate review ends and the multi-shot demonstration begins."},
+    {"id": "c5", "title": "多分镜生成与候选筛选", "start": "00:25:46", "end": "00:33:42", "boundary_reason": "The multi-shot demonstration ends; the author then says they are moving directly into post-production."},
+    {"id": "c6", "title": "后期如何修复连续性", "start": "00:33:43", "end": "00:42:11", "boundary_reason": "Post-production examples finish and the closing statement begins."},
+    {"id": "c7", "title": "工具之外，保留自主判断", "start": "00:42:12", "end": "00:42:52", "boundary_reason": "The closing message reaches the end of the transcript."}
+  ],
+  "keyframes": [
+    {"file": "frames/t0045.jpg", "timestamp": "00:00:45", "chapter": "c2", "reason": "Overall prompt document shows the three-layer structure.", "helps_understand": "Maps the prompt framework to visible fields."},
+    {"file": "frames/t0150.jpg", "timestamp": "00:02:30", "chapter": "c2", "reason": "Close detail of atmosphere and quality fields adds information beyond the overall document.", "helps_understand": "Shows how style, restrictions and image quality become prompt content."},
+    {"file": "frames/t0600.jpg", "timestamp": "00:10:00", "chapter": "c3", "reason": "Script/agent interface marks the transition from writing to asset analysis.", "helps_understand": "Explains how a script is decomposed into usable inputs."},
+    {"file": "frames/t1105.jpg", "timestamp": "00:18:25", "chapter": "c4", "reason": "Canvas assets visibly connect to a generation node.", "helps_understand": "Makes the generation input relationship concrete."},
+    {"file": "frames/t1200.jpg", "timestamp": "00:20:00", "chapter": "c4", "reason": "Node editing view documents the single-shot setup rather than only its result.", "helps_understand": "Shows how the inputs are organized before generation."},
+    {"file": "frames/t1520.jpg", "timestamp": "00:25:20", "chapter": "c4", "reason": "Candidate results demonstrate the selection stage.", "helps_understand": "Supports the idea that generated output is a material pool, not a final answer."},
+    {"file": "frames/t1800.jpg", "timestamp": "00:30:00", "chapter": "c5", "reason": "Multi-shot prompt view captures staged constraints for action and camera language.", "helps_understand": "Explains the balance between explicit constraints and visual freedom."},
+    {"file": "frames/t2034.jpg", "timestamp": "00:33:54", "chapter": "c6", "reason": "Post-production frame shows the character, text and background layer relationship after masking.", "helps_understand": "Visualizes duplicating the character layer, masking it, and placing text behind the character."},
+    {"file": "frames/t2200.jpg", "timestamp": "00:36:40", "chapter": "c6", "reason": "Editing timeline anchors the action-match discussion.", "helps_understand": "Shows that motion direction and camera movement guide the cut."},
+    {"file": "frames/t2400.jpg", "timestamp": "00:40:00", "chapter": "c6", "reason": "Color and lighting result anchors the finishing pass.", "helps_understand": "Connects color, light effects and continuity across generated segments."}
+  ],
+  "browser_acceptance": {
+    "localhost_rendered": true,
+    "desktop": true,
+    "mobile_390": true,
+    "images_ok": true,
+    "links_ok": true,
+    "console_errors": 0,
+    "privacy_check": true
+  }
+}
