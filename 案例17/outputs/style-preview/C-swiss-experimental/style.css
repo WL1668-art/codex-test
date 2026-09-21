@@ -1,0 +1,26 @@
+@import url("../base.css");
+.c{background:#f4f0df;color:#0a0a0a;box-shadow:0 0 70px #0008}
+.c .render-mode{right:52px;bottom:32px;color:#111}
+.grid-v{position:absolute;top:0;width:2px;height:1080px;background:#111}.grid-h{position:absolute;left:0;width:1920px;height:2px;background:#111}
+.c-cover .blue-field{position:absolute;left:0;top:0;width:655px;height:1080px;background:#1247d9;color:#f4f0df;overflow:hidden}
+.c-cover .giant{position:absolute;left:-56px;top:-96px;font:900 610px/.86 Arial,sans-serif;letter-spacing:-.12em}
+.c-cover .vertical{position:absolute;left:48px;bottom:54px;writing-mode:vertical-rl;transform:rotate(180deg);font:700 22px/1 Consolas,monospace;letter-spacing:.16em}
+.c-cover .red-block{position:absolute;right:0;top:0;width:510px;height:274px;background:#f13c25}
+.c-cover .red-block span{position:absolute;left:42px;bottom:34px;font:800 28px/1.15 Arial,"Microsoft YaHei",sans-serif}
+.c-cover .title{position:absolute;left:720px;top:318px;width:1080px;margin:0;font-size:112px;line-height:.97;letter-spacing:-.075em}
+.c-cover .title .under{display:inline-block;border-bottom:18px solid #f13c25;padding-bottom:4px}
+.c-cover .descriptor{position:absolute;left:728px;top:722px;width:760px;font-size:27px;line-height:1.55}
+.c-cover .index{position:absolute;right:54px;bottom:58px;font:900 110px/.8 Arial,sans-serif}
+.c-cover .v1{left:655px}.c-cover .v2{left:1410px}.c-cover .h1{top:274px}.c-cover .h2{top:936px}
+.c-content .mast{position:absolute;left:0;top:0;width:1920px;height:150px;background:#111;color:#f4f0df}
+.c-content .mast h1{position:absolute;left:62px;top:29px;margin:0;font-size:58px;letter-spacing:-.045em}
+.c-content .mast .formula{position:absolute;right:55px;top:28px;font:900 78px/.95 Arial,sans-serif;color:#ffd72e}
+.c-content .col{position:absolute;top:150px;width:640px;height:930px;padding:48px 54px 42px;border-right:2px solid #111}
+.c-content .col.one{left:0;background:#f4f0df}.c-content .col.two{left:640px;background:#f13c25}.c-content .col.three{left:1280px;background:#1247d9;color:#fff;border-right:0}
+.c-content .num{font:900 230px/.78 Arial,sans-serif;letter-spacing:-.11em}
+.c-content .col.one .num{color:#1247d9}.c-content .col.two .num{color:#111}.c-content .col.three .num{color:#ffd72e}
+.c-content h2{margin:64px 0 0;font-size:47px;line-height:1.05;letter-spacing:-.05em}
+.c-content .question{margin-top:24px;font:700 18px/1 Consolas,monospace;letter-spacing:.11em;text-transform:uppercase}
+.c-content .desc{position:absolute;left:54px;bottom:84px;width:520px;font-size:28px;line-height:1.44;font-weight:650}
+.c-content .axis{position:absolute;z-index:5;left:0;top:760px;width:1920px;height:16px;background:#111}
+.c-content .axis::before{content:"";position:absolute;left:0;top:0;width:640px;height:16px;background:#1247d9}.c-content .axis::after{content:"";position:absolute;right:0;top:0;width:640px;height:16px;background:#ffd72e}

@@ -1,0 +1,226 @@
+{
+  "deck": {
+    "title": "把 AI 视频从“抽卡”变成可控创作",
+    "subtitle": "从提示词、资产画布和候选池，到剪辑中的连续性判断",
+    "language": "zh-CN",
+    "aspect_ratio": "16:9",
+    "design_system": "Cinematic AI × Editorial Tech",
+    "source": "案例13最终页面与 extraction report"
+  },
+  "slides": [
+    {
+      "id": "01",
+      "title": "把 AI 视频从“抽卡”变成可控创作",
+      "subtitle": "从提示词、资产画布和候选池，到剪辑中的连续性判断",
+      "page_type": "cover",
+      "render_mode": "hero",
+      "layout": "cinematic_cover",
+      "content": {"eyebrow": "AI VIDEO / CREATIVE CONTROL", "scene": "SCENE 01", "timecode": "00:00:00:01"},
+      "visual_assets": [{"file": "assets/hero.jpg", "role": "full_bleed_background"}],
+      "source_timestamps": [],
+      "speaker_notes": {
+        "talk": "这套方法关注创作过程如何变得可解释、可比较、可修正。",
+        "key_line": "稳定输出来自一连串清晰判断，而不是等待一次完美生成。",
+        "transition": "下一页先拆开“抽卡感”产生的链路。"
+      }
+    },
+    {
+      "id": "02",
+      "title": "“抽卡感”的失控链路",
+      "subtitle": "模型随机只占一部分，更大的问题是创作判断没有显性化",
+      "page_type": "diagnosis",
+      "render_mode": "object",
+      "layout": "control_chain",
+      "content": {
+        "uncontrolled": ["输入模糊", "只留一次结果", "凭感觉挑片", "后期被动补救"],
+        "controlled": ["意图写清", "建立候选池", "按标准比较", "为连续性选片"],
+        "root_causes": ["输入没有显性化", "评价标准没有显性化", "连续性目标没有显性化"]
+      },
+      "visual_assets": [],
+      "source_timestamps": [],
+      "speaker_notes": {
+        "talk": "把一次生成的随机感拆成输入、候选、判断和结果四个环节。",
+        "key_line": "可控创作先把隐藏的标准变成可见步骤。",
+        "transition": "第一步从提示词结构开始，让模型先理解画面。"
+      }
+    },
+    {
+      "id": "03",
+      "title": "提示词的三层结构",
+      "subtitle": "分别回答：是什么、像什么、怎么发生",
+      "page_type": "framework",
+      "render_mode": "object",
+      "layout": "prompt_layers",
+      "content": {
+        "layers": [
+          {"number": "01", "title": "基础设定", "question": "WHAT EXISTS", "description": "时间、地点、人物与参考图中的关键关系。"},
+          {"number": "02", "title": "质感 / 画面语言", "question": "HOW IT FEELS", "description": "风格、影调、景别、构图与运镜边界。"},
+          {"number": "03", "title": "具体画面内容", "question": "WHAT HAPPENS", "description": "动作因为什么发生，最后希望得到什么结果。"}
+        ],
+        "takeaway": "模型需要理解画面关系，创作者需要先把判断写出来。"
+      },
+      "visual_assets": [{"file": "assets/prompt-detail.jpg", "role": "evidence_crop"}],
+      "source_timestamps": ["00:00:45"],
+      "speaker_notes": {
+        "talk": "三层提示词把背景、视觉语言和镜头事件分开处理。",
+        "key_line": "动作、动机和结果要形成因果，而不是堆叠命令。",
+        "transition": "提示词之外，还要把剧本中的生产要素组织成资产。"
+      }
+    },
+    {
+      "id": "04",
+      "title": "从剧本到资产画布",
+      "subtitle": "生成之前，先把镜头所需元素变成可核对的资产系统",
+      "page_type": "system_map",
+      "render_mode": "object",
+      "layout": "asset_board",
+      "content": {
+        "script_label": "剧本 / SHOT INTENT",
+        "assets": ["角色", "场景", "道具", "状态", "参考图"],
+        "checks": ["是否缺失", "是否一致", "是否可调用"],
+        "takeaway": "资产先拆清楚，画布才是生产系统，而不是素材仓库。"
+      },
+      "visual_assets": [{"file": "assets/asset-board.jpg", "role": "production_board_crop"}],
+      "source_timestamps": ["00:18:25"],
+      "speaker_notes": {
+        "talk": "剧本进入生成前，需要转成角色、场景、道具、状态和参考图。",
+        "key_line": "生成前的资产核对，比生成后的返工更便宜。",
+        "transition": "资产准备完成后，单镜头进入批量试错。"
+      }
+    },
+    {
+      "id": "05",
+      "title": "单镜头候选池",
+      "subtitle": "不押注一次生成，用多个候选换取可比较的选择",
+      "page_type": "selection_workspace",
+      "render_mode": "hybrid",
+      "layout": "candidate_pool",
+      "content": {
+        "flow": ["同一个镜头", "并行生成", "逐条看片", "保留可用段"],
+        "criteria": ["主体清楚", "关键动作成立", "镜头势能可接", "光效不破坏连续性"],
+        "takeaway": "生成结果先进入素材池，只有通过标准的片段才进入剪辑。"
+      },
+      "visual_assets": [{"file": "assets/candidate-pool.jpg", "role": "candidate_workspace_crop"}],
+      "source_timestamps": ["00:25:20"],
+      "speaker_notes": {
+        "talk": "把多次生成当作候选素材，而不是失败重试。",
+        "key_line": "先定义可接受标准，再决定哪一段值得留下。",
+        "transition": "单镜头可选之后，多分镜还要处理约束与自由。"
+      }
+    },
+    {
+      "id": "06",
+      "title": "多分镜的约束与自由",
+      "subtitle": "锁定必须发生的事，同时给动态构图留出空间",
+      "page_type": "shot_method",
+      "render_mode": "object",
+      "layout": "shot_constraints",
+      "content": {
+        "beats": [
+          {"number": "01", "title": "动作阶段", "fixed": "进入、冲突、收尾", "free": "动作细节与身体姿态"},
+          {"number": "02", "title": "镜头目标", "fixed": "景别、方向、运动目的", "free": "动态构图与局部变化"},
+          {"number": "03", "title": "验收边界", "fixed": "必须保留的动作势能", "free": "模型可贡献的意外结果"}
+        ],
+        "takeaway": "控制镜头意图，不必控制每一个像素。"
+      },
+      "visual_assets": [
+        {"file": "assets/06-action-phase.jpg", "role": "action_phase_evidence", "annotation": "01 / ACTION PHASE"},
+        {"file": "assets/06-camera-goal.jpg", "role": "camera_goal_evidence", "annotation": "02 / CAMERA GOAL"},
+        {"file": "assets/06-selection-boundary.jpg", "role": "selection_boundary_evidence", "annotation": "03 / SELECTION"}
+      ],
+      "source_timestamps": ["00:30:00"],
+      "speaker_notes": {
+        "talk": "多分镜要明确阶段、景别和运镜，但不需要把高速画面框死。",
+        "key_line": "创作者锁定结果边界，模型负责探索画面细节。",
+        "transition": "即使每段都可用，连续性仍要在后期重新建立。"
+      }
+    },
+    {
+      "id": "07",
+      "title": "连续性在后期完成",
+      "subtitle": "不同生成段要被剪成同一个故事",
+      "page_type": "post_production",
+      "render_mode": "hybrid",
+      "layout": "continuity_edit",
+      "content": {
+        "checks": ["动作方向", "镜头运动", "速度", "光线", "色温 / 调色", "前后镜头逻辑"],
+        "layer_operation": "人物抠像 → 字幕置后 → 背景",
+        "takeaway": "连续性既影响选片，也反过来影响生成时的镜头设计。"
+      },
+      "visual_assets": [
+        {"file": "assets/layer-operation.jpg", "role": "layer_evidence"},
+        {"file": "assets/editing-timeline.jpg", "role": "timeline_evidence"}
+      ],
+      "source_timestamps": ["00:33:54", "00:36:40"],
+      "speaker_notes": {
+        "talk": "后期通过层级、动作匹配、速度、光线和调色建立连接。",
+        "key_line": "连续性不是最后补救，而是从生成阶段就要考虑的剪辑目标。",
+        "transition": "这些步骤最终组成一个可以回环的完整流程。"
+      }
+    },
+    {
+      "id": "08",
+      "title": "可控创作的完整闭环",
+      "subtitle": "每一步都产生下一步可以判断的输入",
+      "page_type": "workflow",
+      "render_mode": "object",
+      "layout": "workflow_loop",
+      "content": {
+        "steps": ["意图", "资产", "提示词", "生成", "候选", "剪辑", "连续性", "复盘"],
+        "loops": ["候选不足：返回生成", "连续性不足：返回选片或镜头设计"],
+        "feedback_paths": [
+          {"id": "candidate_to_generate", "from": "候选", "to": "生成", "accent": "orange"},
+          {"id": "continuity_to_candidate", "from": "连续性", "to": "候选", "accent": "orange"}
+        ],
+        "takeaway": "可控不是消除随机，而是让随机结果进入可判断、可回退的流程。"
+      },
+      "visual_assets": [],
+      "source_timestamps": [],
+      "speaker_notes": {
+        "talk": "把前面的做法合成从意图到复盘的八步闭环。",
+        "key_line": "每个环节都要留下可检查的中间结果。",
+        "transition": "最后把这套方法压缩成五条日常行动原则。"
+      }
+    },
+    {
+      "id": "09",
+      "title": "五条行动原则",
+      "subtitle": "把方法变成下一次创作可以直接执行的检查",
+      "page_type": "principles",
+      "render_mode": "object",
+      "layout": "numbered_principles",
+      "content": {
+        "principles": [
+          "先写评价标准，再生成",
+          "先核对资产，再写镜头",
+          "建候选池，不押单次结果",
+          "连续性既是剪辑问题，也是生成问题",
+          "工具提供可能性，最终判断仍属于创作者"
+        ]
+      },
+      "visual_assets": [],
+      "source_timestamps": [],
+      "speaker_notes": {
+        "talk": "五条原则对应从生成前、生成中到后期的具体动作。",
+        "key_line": "最稳定的控制来自评价标准，而不是更多参数。",
+        "transition": "结尾把焦点从工具收回到创作者的判断。"
+      }
+    },
+    {
+      "id": "10",
+      "title": "工具提供可能性",
+      "subtitle": "创作者完成最后一次选择",
+      "page_type": "closing",
+      "render_mode": "hero",
+      "layout": "cinematic_closing",
+      "content": {"scene": "FINAL CUT", "timecode": "00:42:52:00"},
+      "visual_assets": [{"file": "assets/closing.jpg", "role": "full_bleed_background"}],
+      "source_timestamps": ["00:40:00"],
+      "speaker_notes": {
+        "talk": "工具扩展可生成的可能性，作品仍由作者的取舍完成。",
+        "key_line": "创作者负责最后一次选择。",
+        "transition": "结束演讲，进入讨论。"
+      }
+    }
+  ]
+}

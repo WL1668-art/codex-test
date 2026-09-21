@@ -1,0 +1,1 @@
+(()=>{const f=()=>document.documentElement.style.setProperty('--scale',String(Math.min(innerWidth/1920,innerHeight/1080)));addEventListener('resize',f,{passive:true});f()})();
